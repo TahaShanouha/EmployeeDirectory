@@ -1,11 +1,11 @@
-import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { bindActionCreators, Dispatch } from 'redux';
-import { connect } from 'react-redux';
+import React, { useEffect } from 'react';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 import {
   withStyles, makeStyles, createStyles, MuiThemeProvider
 } from '@material-ui/core';
 import { ToastContainer } from 'react-toastify';
+import Directory from './Directory';
+import DataService from './services/data-service';
 
 
 const useStyles = makeStyles(
@@ -33,13 +33,14 @@ const useStyles = makeStyles(
 
 const App: React.FC = () => {
   const classes = useStyles();
+
   return (
     <>
-      {/* <StoreLoader /> */}
+    <BrowserRouter>
       <Switch>
         <Route path="*" component={Directory} />
       </Switch>
-      {/* <StoreLoader /> */}
+    </BrowserRouter>
       <ToastContainer
         position="top-center"
         autoClose={5000}
@@ -54,3 +55,4 @@ const App: React.FC = () => {
   )
 };
 
+export default App;
