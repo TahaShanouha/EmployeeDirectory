@@ -6,7 +6,6 @@ import EnhancedTable from '../../components/EnhancedTable';
 import { IEmployee } from '../../models/Employee';
 import DataService from '../../services/data-service';
 import { IAbstractRecord } from '../../models/general';
-import { toast } from 'react-toastify';
 
 const useStyles = makeStyles(
   createStyles({
@@ -27,7 +26,7 @@ const useStyles = makeStyles(
   }),
 );
 
-const Employees: React.FC = ({
+const EmployeeInformation: React.FC = ({
 }) => {
   const classes = useStyles();
 
@@ -40,41 +39,11 @@ const Employees: React.FC = ({
   ];
   
 
-  useEffect(() => {
-    setLoader(true); 
-    let dataValue: IEmployee[] = [];
-    DataService.get(
-      `https://randomuser.me/api/?results=100`,
-    ).then(async response => {
-      if (response.ok) {
-        const result = await response.json();
-       
-        if(result){
-          dataValue = Object.values(result.results);
-        }
-        toast.success("Employees retrieved successfully");
-      }
-      else{
-        toast.error("Error retrieving employees")
-      }
-      setData(dataValue);
-   
-      setLoader(false);
-    });
-  }, []);
-
   return (
-    <>
-    {loader ? 
-    <></>
-    : 
     <div className={classes.employeesContainer}>
-      <EnhancedTable data={data} headers={headers}/>
+      test
     </div>
-    }
-   
-    </>
   );
 };
 
-export default Employees;
+export default EmployeeInformation;

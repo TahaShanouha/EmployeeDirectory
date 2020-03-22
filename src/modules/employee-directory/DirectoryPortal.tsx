@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import { createStyles, makeStyles } from '@material-ui/core';
 import DirectoryShell from './DirectoryShell';
 import Employees from './Employees';
+import EmployeeInformation from './EmployeeInformation';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -30,7 +31,7 @@ const DirectoryPortal: React.FC = () => {
         />
         <Route
           path="/directory/:id/"
-          component={Employees}
+          component={EmployeeInformation}
         />
       </Switch>
     </DirectoryShell>

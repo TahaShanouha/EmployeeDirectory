@@ -6,7 +6,6 @@ import './index.css';
 import './css/ant-design.css';
 // import configureStore from './redux';
 import App from './App';
-import 'react-toastify/dist/ReactToastify.css';
 
 // import * as serviceWorker from './serviceWorker';
 

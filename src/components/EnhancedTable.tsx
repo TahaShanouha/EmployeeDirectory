@@ -116,10 +116,10 @@ const EnhancedTable: React.FC<IEnhancedTableProps> = ({ headers, data }) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={emp.email}>
                     <TableCell component="th" align="center" scope="row">
-                      {emp.name && setName(emp.name)}
+                      <a href="directory/info">{emp.name && setName(emp.name)}</a>
                     </TableCell>
-                    <TableCell align="center">{emp.email}</TableCell>
-                    <TableCell align="center">{emp.phone}</TableCell>
+                    <TableCell align="center"> <a href="/info">{emp.email}</a></TableCell>
+                    <TableCell align="center"> <a href="/info">{emp.phone}</a></TableCell>
                   </TableRow>
                 );
               })}
