@@ -68,13 +68,7 @@ const EnhancedTable: React.FC<IEnhancedTableProps> = ({
     setPage(newPage);
   };
 
-  const renderToolbar = () => (
-    <EnhancedSearchBar
-      data={filtered}
-      handleChange={handleSearchChange}
-      title={inlineTitle}
-    />
-  );
+
 
   const handleSearchChange = () => {
     
@@ -84,7 +78,7 @@ const EnhancedTable: React.FC<IEnhancedTableProps> = ({
     <Paper className={classes.root}>
       <Paper className={classes.paper}>
           <>
-            {renderToolbar()}
+            
           </>
       </Paper>
       <Table className={classes.table} aria-label="simple table">
