@@ -6,7 +6,10 @@ export interface IEmployee {
   location?: IEmployeeLocation;
   department?: string;
   title?: string;
-  id?: IEmployeeId
+  login: IEmployeeId
+  picture?: IEmployeeImages;
+  gender?: string;
+  dob?: IEmployeeDOB;
 }
 
 export interface IEmployeeName {
@@ -15,14 +18,28 @@ export interface IEmployeeName {
   last: string;
 }
 
-interface IEmployeeLocation{
-  street: string;
+export interface IEmployeeLocation{
+  street: IStreet;
   city: string;
   state: string;
   postcode: string;
 }
 
-interface IEmployeeId{
+interface IStreet {
   name: string;
-  value: string;
+  number: string;
+}
+
+interface IEmployeeId{
+  uuid: string;
+}
+
+interface IEmployeeImages{
+  large: string;
+  medium: string;
+  thumbnail: string;
+}
+
+interface IEmployeeDOB{
+  age: number;
 }

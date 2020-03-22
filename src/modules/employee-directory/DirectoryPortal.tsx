@@ -22,16 +22,16 @@ const DirectoryPortal: React.FC = () => {
     <DirectoryShell classes={{ body: classes.body }}>
       <Switch>
         <Route
+          path="/info/:uuid/"
+          component={EmployeeInformation}
+        />
+        <Route
           path="/"
           component={Employees}
         />
         <Route
           path="/directory"
           component={Employees}
-        />
-        <Route
-          path="/directory/:id/"
-          component={EmployeeInformation}
         />
       </Switch>
     </DirectoryShell>

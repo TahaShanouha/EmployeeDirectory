@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import clsx from 'clsx';
-import { TableContainer } from '@material-ui/core';
 import EnhancedTable from '../../components/EnhancedTable';
 import { IEmployee } from '../../models/Employee';
 import DataService from '../../services/data-service';
-import { IAbstractRecord } from '../../models/general';
 import { toast } from 'react-toastify';
 
 const useStyles = makeStyles(

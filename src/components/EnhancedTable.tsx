@@ -9,6 +9,8 @@ import Paper from "@material-ui/core/Paper";
 import TextField from "@material-ui/core/TextField";
 import { IEmployee, IEmployeeName } from "../models/Employee";
 import { TablePagination } from "@material-ui/core";
+import { WINDOW_ORIGIN } from "../constants/constants";
+import { setName } from "../utils/employee-utils";
  
 export interface IEnhancedTableProps {
   headers: string[];
@@ -37,10 +39,6 @@ const useStyles = makeStyles({
 });
  
  
-const setName = (name: IEmployeeName) => {
-  return name.title + " " + name.first + " " + name.last;
-};
- 
 const EnhancedTable: React.FC<IEnhancedTableProps> = ({ headers, data }) => {
   const classes = useStyles();
   const [rowsPerPage, setRowsPerPage] = React.useState<number>(10);
@@ -57,8 +55,6 @@ const EnhancedTable: React.FC<IEnhancedTableProps> = ({ headers, data }) => {
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
- 
-  const handleSearchChange = () => {};
  
   const dataFiltered =
     data &&
@@ -116,10 +112,10 @@ const EnhancedTable: React.FC<IEnhancedTableProps> = ({ headers, data }) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1} key={emp.email}>
                     <TableCell component="th" align="center" scope="row">
-                      <a href="directory/info">{emp.name && setName(emp.name)}</a>
+                      <a href={WINDOW_ORIGIN +`/info/${emp.login.uuid}`}>{emp.name && setName(emp.name)}</a>
                     </TableCell>
-                    <TableCell align="center"> <a href="/info">{emp.email}</a></TableCell>
-                    <TableCell align="center"> <a href="/info">{emp.phone}</a></TableCell>
+                    <TableCell align="center"> <a href={WINDOW_ORIGIN +`/info/${emp.login.uuid}`}>{emp.email}</a></TableCell>
+                    <TableCell align="center"> <a href={WINDOW_ORIGIN +`/info/${emp.login.uuid}`}>{emp.phone}</a></TableCell>
                   </TableRow>
                 );
               })}

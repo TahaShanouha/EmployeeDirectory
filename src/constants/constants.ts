@@ -1,0 +1,1 @@
+export const WINDOW_ORIGIN = window.location.origin;

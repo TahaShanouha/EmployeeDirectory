@@ -49,11 +49,9 @@ const App: React.FC = () => {
 
   return (
     <>
-    <BrowserRouter>
       <Switch>
         <Route path="*" component={Directory} />
       </Switch>
-    </BrowserRouter>
       <ToastContainer
         position="top-center"
         autoClose={5000}
